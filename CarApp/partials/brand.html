@@ -1,0 +1,33 @@
+<h1>Brand</h1>
+<h4>{{ brand.name }}</h4>
+<hr>
+
+<div class="row">
+	<form ng-submit="saveBrand()">
+		
+		<div ng-hide="adding">
+			Id:
+			<br>
+			<input type="text" class="form-control" ng-model="brand.id" readonly="readonly">
+			<br>
+		</div>
+
+		Name:
+		<br>
+		<input type="text" class="form-control" ng-model="brand.name" required>
+		<br>
+
+		<button class="btn btn-primary" type="submit">
+			<i class="fa fa-floppy-o"></i>
+			Save
+		</button>
+		
+		<button class="btn btn-danger" type="button" ng-hide="adding" ng-click="deleteBrand();">
+			Delete
+		</button>
+
+		<br><br>
+		<p class="text-success" ng-show="updated">{{ message }}</p>
+		<p class="text-warning" ng-show="error">{{ message }}</p>
+	</form>
+</div>

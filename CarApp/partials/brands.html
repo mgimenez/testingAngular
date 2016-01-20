@@ -1,0 +1,22 @@
+<h1>Brands</h1>
+<h4>List of brands</h4>
+<hr>
+<div class="row" align="right">
+	<a href="#/brand/new" class="btn btn-info">
+		<i class="fa fa-user-plus"></i>
+		Add Brand
+	</a>
+	<br><br>
+</div>
+<div class="row">
+	<table class="table table-striped">
+		<tr>
+			<th>Name</th>
+			<th>Actions</th>
+		</tr>
+		<tr ng-repeat="brand in brands">
+			<td>{{ brand.name }}</td>
+			<td> <a href="#/brand/{{ brand.id }}">Ver registro</a> </td>
+		</tr>
+	</table>
+</div>

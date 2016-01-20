@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="carApp" ng-controller="mainCtrl">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Car Application</title>
+
+
+        <!-- Incluir Bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+        <style>
+            body { padding-top: 50px;}
+        </style>
+
+        <!-- Incluir AngularJS -->
+        <script src="js/lib/angular.min.js"></script>
+        <script src="js/lib/angular-route.min.js"></script>
+
+        <script src="js/app.js"></script>
+        <script src="js/config.js"></script>
+
+        <!-- Controladores de páginas -->
+        <script src="js/homeCtrl.js"></script>
+        <script src="js/carsCtrl.js"></script>
+        <script src="js/brandsCtrl.js"></script>
+        <script src="js/brandCtrl.js"></script>
+        <script src="js/modelsCtrl.js"></script>
+
+
+        
+    </head>    
+    <body>
+        
+        <div ng-include="menuTop"></div>
+
+        
+        <div class="container">
+        <!-- La pagina principal ira aquí -->
+            
+            <div ng-view></div>
+
+        </div><!-- /.container -->
+
+
+    </body>
+</html>

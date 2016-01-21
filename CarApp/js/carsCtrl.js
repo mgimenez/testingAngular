@@ -7,6 +7,7 @@ app.controller('carsCtrl', ['$scope', '$http', function($scope, $http){
 	$http.get('php/services/cars.list.php').success(function(data) {
 
 		$scope.cars = data;
+		$scope.years = $scope.getYears(data);
 
 	});
 
@@ -16,5 +17,19 @@ app.controller('carsCtrl', ['$scope', '$http', function($scope, $http){
 
 	});
 
+	$scope.getYears = function(data) {
+		var years = [];
+
+		for(var i=0; i<data.length; i++) {
+		   years.push(data[i].year)
+		}
+
+		years = years.filter( function( item, index, inputArray ) {
+			return inputArray.indexOf(item) == index;
+	    });
+
+	    return years;
+
+	}
 
 }]);

@@ -8,16 +8,24 @@
 	</a>
 	<br><br>
 </div>
+
 <div class="row">
-	 <div class="col-md-6">
+	 <div class="col-md-4">
 		Search:
 		<input type="text" ng-model="search" class="form-control" />
 	</div>
-	<div class="col-md-6">
+	<div class="col-md-4">
 		Brand:
 		<select class="form-control" ng-model="selectedBrand">
 			<option value="">Select</option>
 			<option ng-repeat="brand in brands" value="{{ brand.name }}"> {{ brand.name }}</option>
+		</select>
+	</div>
+	<div class="col-md-4">
+		Year:
+		<select class="form-control" ng-model="selectedYear">
+			<option value="">Select</option>
+			<option ng-repeat="year in years" value="{{ year }}"> {{ year }}</option>
 		</select>
 	</div>
 </div>
@@ -26,14 +34,14 @@
 <div class="row">
 	<table class="table table-striped">
 		<tr>
-			<th>Brand</th>
-			<th>Model</th>
-			<th>Color</th>
-			<th>Year</th>
-			<th>Price</th>
+			<th> <a ng-click=" col='brandName'; reverse = !reverse;"> Brand</th>
+			<th> <a ng-click=" col='modelName'; reverse = !reverse;"> Model</th>
+			<th> <a ng-click=" col='color'; reverse = !reverse;"> Color</th>
+			<th> <a ng-click=" col='year'; reverse = !reverse;">Year</a> </th>
+			<th> <a ng-click=" col='price'; reverse = !reverse;"> Price</th>
 			<th>Actions</th>
 		</tr>
-		<tr ng-repeat="car in cars | filter:search | filter:selectedBrand">
+		<tr ng-repeat="car in cars | filter:search | filter:selectedBrand | filter:selectedYear | orderBy:col:reverse">
 			<td>{{ car.brandName }}</td>
 			<td>{{ car.modelName }}</td>
 			<td>{{ car.color }}</td>

@@ -1,0 +1,41 @@
+<h1>Model</h1>
+<h4>{{ model.modelName }}</h4>
+<hr>
+
+<div class="row">
+	<form ng-submit="saveModel()">
+		
+		<div ng-hide="adding">
+			Id:
+			<br>
+			<input type="text" class="form-control" ng-model="model.id" readonly="readonly">
+			<br>
+		</div>
+
+		Brand:
+		<br>
+		<select class="form-control">
+			<option value="{{ model.brandId }}">{{ model.brandName }}</option>
+            <option ng-repeat="brand in brands" value=" {{ brand.id }}"> {{ brand.name }}</option>
+        </select>
+		<br>
+
+		Name:
+		<br>
+		<input type="text" class="form-control" ng-model="model.modelName" required>
+		<br>
+
+		<button class="btn btn-primary" type="submit">
+			<i class="fa fa-floppy-o"></i>
+			Save
+		</button>
+		
+		<button class="btn btn-danger" type="button" ng-hide="adding" ng-click="deleteModel();">
+			Delete
+		</button>
+
+		<br><br>
+		<p class="text-success" ng-show="updated">{{ message }}</p>
+		<p class="text-warning" ng-show="error">{{ message }}</p>
+	</form>
+</div>

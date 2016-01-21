@@ -1,16 +1,24 @@
 <h1>Models</h1>
 <h4>List of Models</h4>
 <hr>
-
+<div class="row" align="right">
+	<a href="#/models/new" class="btn btn-info">
+		<i class="fa fa-user-plus"></i>
+		Add Model
+	</a>
+	<br><br>
+</div>
 <div class="row">
 	<table class="table table-striped">
 		<tr>
 			<th>Brand</th>
 			<th>Model</th>
+			<th>Actions</th>
 		</tr>
 		<tr ng-repeat="model in models">
 			<td>{{ model.brandName }}</td>
 			<td>{{ model.modelName }}</td>
+			<td> <a href="#/model/{{ model.id }}">Edit</a> </td>
 		</tr>
 	</table>
 </div>

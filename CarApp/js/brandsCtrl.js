@@ -10,8 +10,4 @@ app.controller('brandsCtrl', ['$scope', '$http', function($scope, $http) {
 
 	});
 
-	$scope.edit = function () {
-		console.log(this);
-	}
-
 }]);

@@ -14,9 +14,8 @@
 
 		Brand:
 		<br>
-		<select class="form-control">
-			<option value="{{ model.brandId }}">{{ model.brandName }}</option>
-            <option ng-repeat="brand in brands" value=" {{ brand.id }}"> {{ brand.name }}</option>
+		<select ng-model="model.brandId" class="form-control" ng-options="brand.id as brand.name for brand in brands" required>
+            <option value="">Select</option>
         </select>
 		<br>
 

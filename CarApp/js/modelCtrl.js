@@ -23,16 +23,14 @@ app.controller('modelCtrl', ['$scope', '$routeParams', '$http', function($scope,
 			}
 
 			$scope.model = data;
-		});	
-
-		$http.get('php/services/brands.list.php').success(function(data) {
-
-			$scope.brands = data;
-
 		});
-		
 	}
 
+	$http.get('php/services/brands.list.php').success(function(data) {
+
+		$scope.brands = data;
+
+	});
 
 	$scope.saveModel = function() {
 
@@ -83,7 +81,7 @@ app.controller('modelCtrl', ['$scope', '$routeParams', '$http', function($scope,
 					}, 3500);
 				} else {
 					$scope.error = true;
-					$scope.message = 'You can\'t delete this model because you still have associated models.';
+					$scope.message = 'You can\'t delete this model because you still have associated cars.';
 				}
 
 			});

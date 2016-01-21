@@ -1,7 +1,13 @@
 	<h1>Cars</h1>
 <h4>List of Cars</h4>
 <hr>
-
+<div class="row" align="right">
+	<a href="#/car/new" class="btn btn-info">
+		<i class="fa fa-user-plus"></i>
+		Add Car
+	</a>
+	<br><br>
+</div>
 <div class="row">
 	 <div class="col-md-6">
 		Search:
@@ -25,6 +31,7 @@
 			<th>Color</th>
 			<th>Year</th>
 			<th>Price</th>
+			<th>Actions</th>
 		</tr>
 		<tr ng-repeat="car in cars | filter:search | filter:selectedBrand">
 			<td>{{ car.brandName }}</td>
@@ -32,6 +39,7 @@
 			<td>{{ car.color }}</td>
 			<td>{{ car.year }}</td>
 			<td>{{ car.price | currency}}</td>
+			<td> <a href="#/car/{{ car.id }}/{{ car.brandId }}">Edit</a> </td>
 		</tr>
 	</table>
 </div>

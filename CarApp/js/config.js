@@ -25,6 +25,14 @@ app.config( function($routeProvider){
 			templateUrl: 'partials/model.html',
 			controller: 'modelCtrl'
 		})
+		.when('/car/:id/:brandId',{
+			templateUrl: 'partials/car.html',
+			controller: 'carCtrl'
+		})
+		.when('/car/:id/',{
+			templateUrl: 'partials/car.html',
+			controller: 'carCtrl'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});

@@ -1,0 +1,56 @@
+<h1>Car</h1>
+<h4>{{ car.brandName }} {{ car.modelName }}</h4>
+<hr>
+
+<div class="row">
+	<form ng-submit="saveCar()">
+		
+		<div ng-hide="adding">
+			Id:
+			<br>
+			<input type="text" class="form-control" ng-model="car.id" readonly="readonly">
+			<br>
+		</div>
+
+		<br>
+		<select ng-model="car.brandId" class="form-control" ng-options="brand.id as brand.name for brand in brands" ng-readonly="editing" ng-disabled="editing" required>
+            <option value="">Select</option>
+        </select>
+		<br>
+
+		Model:
+		<br>
+		<select ng-model="car.modelId" class="form-control" ng-options="model.id as model.modelName for model in models" required ng-disabled="!hasBrand">
+            <option value="">Select</option>
+        </select>
+		<br>
+
+		Color:
+		<br>
+		<input type="text" class="form-control" ng-model="car.color" required>
+		<br>
+
+		Year:
+		<br>
+		<input type="text" class="form-control" ng-model="car.year" required>
+		<br>
+
+		Price:
+		<br>
+		<input type="text" class="form-control" ng-model="car.price" required>
+		<br>
+
+		<button class="btn btn-primary" type="submit">
+			<i class="fa fa-floppy-o"></i>
+			Save
+		</button>
+		
+		<button class="btn btn-danger" type="button" ng-hide="adding" ng-click="deleteCar();">
+			Delete
+		</button>
+
+		<br><br>
+		<p class="text-success" ng-show="updated">{{ message }}</p>
+		<p class="text-warning" ng-show="error">{{ message }}</p>
+	</form>
+</div>
